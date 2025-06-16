@@ -119,10 +119,6 @@ Contributions are welcome! If you find any issues or want to improve the design:
 
 ---
 
-## **📜 License**  
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
-
----
 
 ## **🔗 Useful Links**  
 - [Verilog HDL Basics](https://www.chipverify.com/verilog/)  
