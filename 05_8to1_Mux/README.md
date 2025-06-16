@@ -1,163 +1,132 @@
+# **8-to-1 Multiplexer (MUX) - Verilog Implementation**  
 
-## 📘 8-to-1 Multiplexer (MUX) – Gate-Level & Behavioral Modeling in Verilog
+## **📌 Overview**  
+This repository contains **Verilog HDL** implementations of an **8-to-1 Multiplexer (MUX)** using two different modeling styles:  
+1. **Gate-Level Modeling** (Structural Design)  
+2. **Behavioral Modeling** (High-Level Abstraction)  
 
-### 🔗 Repository: `hdl-learning/05_8to1_Mux`
-
-This project demonstrates the implementation, simulation, and verification of an **8-to-1 Multiplexer (MUX)** using **both Gate-Level Modeling** and **Behavioral Modeling** in **Verilog HDL**.
-
----
-
-### 📌 Table of Contents
-
-* [🔧 Project Description](#-project-description)
-* [🧠 Functional Overview](#-functional-overview)
-* [💡 Design Approach](#-design-approach)
-
-  * [Gate-Level Modeling](#gate-level-modeling)
-  * [Behavioral Modeling](#behavioral-modeling)
-* [🧪 Testbench Details](#-testbench-details)
-* [📈 Simulation & Waveform](#-simulation--waveform)
-* [📁 File Structure](#-file-structure)
-* [🚀 How to Run the Code](#-how-to-run-the-code)
-* [📷 Screenshots / Waveforms](#-screenshots--waveforms)
-* [📚 What I Learned](#-what-i-learned)
-* [🔗 References](#-references)
+A comprehensive **testbench** is included to verify the functionality of both implementations, along with simulation waveforms for validation.  
 
 ---
 
-### 🔧 Project Description
-
-An **8:1 multiplexer** is a combinational logic circuit that selects one of 8 input lines and routes it to a single output line based on the values of 3 selection lines. This project implements the MUX using two different abstraction levels:
-
-1. **Gate-Level Modeling**: Realistic representation using basic logic gates (`and`, `or`, `not`).
-2. **Behavioral Modeling**: High-level description using `case` statements in `always` blocks.
-
----
-
-### 🧠 Functional Overview
-
-* **Inputs**:
-
-  * Data Inputs: `i0` to `i7` (8 single-bit inputs)
-  * Select Inputs: `s0`, `s1`, `s2` (3 bits to choose one of 8 inputs)
-  * Enable Input: `E` (active-high enable control)
-
-* **Output**:
-
-  * `Y`: Final output (selected input line if `E=1`, otherwise 0)
+## **📝 Table of Contents**  
+1. [Introduction](#-introduction)  
+2. [Multiplexer Basics](#-multiplexer-basics)  
+3. [Design Implementations](#-design-implementations)  
+4. [Testbench & Simulation](#-testbench--simulation)  
+5. [Results & Waveforms](#-results--waveforms)  
+6. [How to Run](#-how-to-run)  
+7. [Dependencies](#-dependencies)  
+8. [Contributing](#-contributing)  
+9. [License](#-license)  
 
 ---
 
-### 💡 Design Approach
+## **🎯 Introduction**  
+A **Multiplexer (MUX)** is a fundamental combinational circuit that selects one of several input signals and forwards it to a single output line based on a set of **select lines**.  
 
-#### Gate-Level Modeling
+This project demonstrates two different Verilog modeling approaches:  
+- **Gate-Level (Structural)**: Implements the MUX using basic logic gates (`AND`, `OR`, `NOT`).  
+- **Behavioral (High-Level)**: Uses `if-else` and `case` statements for more abstract and readable code.  
 
-* Used NOT gates to generate complements of select lines.
-* Used AND gates to create select conditions like `s0' s1 s2' i2`.
-* Combined all intermediate lines using an OR gate.
-* Used a final AND gate with the enable (`E`) to generate the output `Y`.
-
-📄 File: `mux_8to1_gatelevel.v`
-
-#### Behavioral Modeling
-
-* Modeled the logic using an `always @(*)` block with a `case` statement based on `{s2, s1, s0}`.
-* Checked for the enable (`E`) before selecting any input.
-
-📄 File: `mux_8to1_behavioural.v`
+A **testbench** is provided to verify both designs by exhaustively testing all possible input combinations, ensuring correctness.  
 
 ---
 
-### 🧪 Testbench Details
+## **🔧 Multiplexer Basics**  
+An **8-to-1 MUX** has:  
+- **8 Inputs** (`i0` to `i7`)  
+- **3 Select Lines** (`s0`, `s1`, `s2`) → \(2^3 = 8\) combinations  
+- **1 Output** (`Y`)  
+- **1 Enable Signal** (`E`) → Active High  
 
-* The testbench initializes all inputs and enables signal toggling and exhaustive simulation.
-* For-loop simulates **all 2¹¹ = 2048 combinations** of inputs and select lines.
-* Includes `$display()` statements for runtime comparison between gate-level and behavioral outputs.
+**Truth Table:**  
 
-📄 File: `testbench.v`
-
----
-
-### 📈 Simulation & Waveform
-
-* **VCD File**: `mux_8to1.vcd` generated using `$dumpfile` and `$dumpvars`.
-* **GTKWave**: View signal transitions over time and verify correct selection logic.
-
-Optional pre-configured GTKWave file:
-
-📄 File: `mux_8to1.gtkw`
-
-```bash
-gtkwave mux_8to1.vcd mux_8to1.gtkw
-```
+| **Enable (E)** | **Select Lines (s2 s1 s0)** | **Output (Y)** |
+|----------------|-----------------------------|----------------|
+| 0              | X X X                       | 0 (Disabled)   |
+| 1              | 0 0 0                       | i0             |
+| 1              | 0 0 1                       | i1             |
+| 1              | 0 1 0                       | i2             |
+| 1              | 0 1 1                       | i3             |
+| 1              | 1 0 0                       | i4             |
+| 1              | 1 0 1                       | i5             |
+| 1              | 1 1 0                       | i6             |
+| 1              | 1 1 1                       | i7             |
 
 ---
 
-### 📁 File Structure
+## **💻 Design Implementations**  
 
-```bash
-05_8to1_Mux/
-│
-├── mux_8to1_gatelevel.v       # Gate-level implementation
-├── mux_8to1_behavioural.v     # Behavioral implementation
-├── testbench.v                # Testbench to verify functionality
-├── mux_8to1.vcd               # VCD waveform dump (auto-generated)
-├── mux_8to1.gtkw              # GTKWave configuration (optional)
-├── images/
-│   └── mux_circuit_diagram.png # Logic diagram of 8:1 MUX (optional)
-└── README.md                  # This README file
-```
+### **🔌 Gate-Level MUX (Structural Design)**  
+- Built using **basic logic gates** (`AND`, `OR`, `NOT`).  
+- **Internal signals** (`w0` to `w8`) represent intermediate outputs.  
+- **Enable (`E`)** gates the final output.  
+
+### **⚡ Behavioral MUX (High-Level Design)**  
+- Uses **`case` statement** for selection logic.  
+- More **readable** and **scalable** for complex designs.  
 
 ---
 
-### 🚀 How to Run the Code
-
-#### 📦 Requirements
-
-* **Icarus Verilog** (for simulation)
-* **GTKWave** (for waveform viewing)
-
-#### 🔧 Compile & Simulate
-
-```bash
-iverilog -o mux_8to1_tb testbench.v mux_8to1_gatelevel.v mux_8to1_behavioural.v
-vvp mux_8to1_tb
-```
-
-#### 📊 View Waveform
-
-```bash
-gtkwave mux_8to1.vcd mux_8to1.gtkw
-```
+## **🧪 Testbench & Simulation**  
+- **Tests all possible input combinations** (2048 cases).  
+- **Compares outputs** of both MUX implementations.  
+- Generates **VCD waveform** for analysis.  
 
 ---
 
-### 📷 Screenshots / Waveforms
+## **📊 Results & Waveforms**  
+The simulation waveforms confirm that both implementations produce identical outputs for all input combinations.  
 
-📸 *Place your waveform images or logic diagram here*
-
-Example:
-
-* ✅ **Correct output when `E=1` and `s2s1s0=101`: `Y = i5`**
-* ❌ **Output is forced to 0 when `E=0` regardless of select lines**
-
----
-
-### 📚 What I Learned
-
-* Differences between **gate-level** and **behavioral** abstraction in Verilog
-* Writing a clean and exhaustive **testbench**
-* How to use **Icarus Verilog** for compilation and simulation
-* Creating and analyzing **waveform output** with GTKWave
-* Importance of **modular code structure** for readability and debugging
-* Better understanding of **MUX logic** and **control signal (Enable) behavior**
+### **Key Observations:**  
+1. **When `E = 0`**, the output `Y` is always `0` (disabled state).  
+2. **When `E = 1`**, the MUX correctly routes the selected input to `Y` based on `s2, s1, s0`.  
+3. **Both designs (Gate-Level & Behavioral) match** in functionality.  
 
 ---
 
-### 🔗 References
+## **🚀 How to Run**  
+### **Simulation Steps:**  
+1. **Compile the Verilog files:**  
+   ```bash
+   iverilog -o mux_8to1_tb testbench.v mux_8to1_gatelevel.v mux_8to1_behavioural.v
+   ```  
+2. **Run the simulation:**  
+   ```bash
+   vvp mux_8to1_tb
+   ```  
+3. **View waveforms (GTKWave):**  
+   ```bash
+   gtkwave mux_8to1.vcd
+   ```  
 
-* [NPTEL Verilog Course – Prof. Indranil Sengupta (IIT KGP)](https://nptel.ac.in/courses/117105080)
-* [Icarus Verilog Documentation](http://iverilog.icarus.com/)
-* [GTKWave User Guide](http://gtkwave.sourceforge.net/)
-* \[Verilog HDL Textbook – Samir Palnitkar]
+---
+
+## **📦 Dependencies**  
+- **Simulator:** [Icarus Verilog (iverilog)](http://iverilog.icarus.com/)  
+- **Waveform Viewer:** [GTKWave](http://gtkwave.sourceforge.net/)  
+
+---
+
+## **🤝 Contributing**  
+Contributions are welcome! If you find any issues or want to improve the design:  
+1. **Fork** the repository.  
+2. Create a **new branch** (`git checkout -b feature/improvement`).  
+3. **Commit** your changes (`git commit -m "Add feature"`).  
+4. **Push** to the branch (`git push origin feature/improvement`).  
+5. Open a **Pull Request**.  
+
+---
+
+## **📜 License**  
+This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.  
+
+---
+
+## **🔗 Useful Links**  
+- [Verilog HDL Basics](https://www.chipverify.com/verilog/)  
+- [Multiplexer Theory](https://www.electronics-tutorials.ws/combination/comb_2.html)  
+- [Icarus Verilog Documentation](http://iverilog.wikia.com/)  
+
 
