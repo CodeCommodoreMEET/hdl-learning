@@ -105,10 +105,7 @@ This DEMUX can be used in:
 - Communication systems  
 - Data routing in processors  
 
----
 
-## **📜 License**  
-**MIT Licensed** - Free for academic and commercial use with attribution.  
 
 ---
 
