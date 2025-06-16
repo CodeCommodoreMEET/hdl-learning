@@ -1,5 +1,4 @@
 
-### ✅ Here's a complete `README.md` you can copy-paste:
 
 ````markdown
 # HDL Learning 🧠🔧
