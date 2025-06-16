@@ -111,11 +111,6 @@ gtkwave mux_4to1.vcd
 
 ---
 
-## 📜 License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use, modify, and distribute this project with attribution.
-
----
 
 ## 🙋‍♂️ Author
 
