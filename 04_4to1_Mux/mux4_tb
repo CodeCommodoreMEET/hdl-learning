@@ -1,0 +1,147 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_012B1BD0 .scope module, "testbench" "testbench" 2 3;
+ .timescale -9 -12;
+v012EBC48_0 .var "E", 0 0;
+v012EC4E0_0 .net "Y_behav", 0 0, v0128C968_0; 1 drivers
+v012EC430_0 .net "Y_gate", 0 0, L_012ECCB8; 1 drivers
+v012EBE58_0 .var/i "i", 31 0;
+v012EC640_0 .var "i0", 0 0;
+v012EBF60_0 .var "i1", 0 0;
+v012EBEB0_0 .var "i2", 0 0;
+v012EC0C0_0 .var "i3", 0 0;
+v012EC328_0 .var "s0", 0 0;
+v012EBF08_0 .var "s1", 0 0;
+v012EC170_0 .net "w0_gate", 0 0, L_012824E0; 1 drivers
+v012EC010_0 .net "w1_gate", 0 0, L_012ECE78; 1 drivers
+v012EC698_0 .net "w2_gate", 0 0, L_012ECD98; 1 drivers
+v012EC3D8_0 .net "w3_gate", 0 0, L_012ECFC8; 1 drivers
+v012EC5E8_0 .net "w4_gate", 0 0, L_012ECF58; 1 drivers
+S_012B1C58 .scope module, "gate" "mux_4to1_gatelevel" 2 7, 3 1, S_012B1BD0;
+ .timescale -9 -12;
+L_01282470 .functor NOT 1, v012EC328_0, C4<0>, C4<0>, C4<0>;
+L_012824A8 .functor NOT 1, v012EBF08_0, C4<0>, C4<0>, C4<0>;
+L_012824E0 .functor AND 1, L_01282470, L_012824A8, v012EC640_0, C4<1>;
+L_012ECE78 .functor AND 1, v012EC328_0, L_012824A8, v012EBF60_0, C4<1>;
+L_012ECD98 .functor AND 1, L_01282470, v012EBF08_0, v012EBEB0_0, C4<1>;
+L_012ECFC8 .functor AND 1, v012EC328_0, v012EBF08_0, v012EC0C0_0, C4<1>;
+L_012ECF58 .functor OR 1, L_012824E0, L_012ECE78, L_012ECD98, L_012ECFC8;
+L_012ECCB8 .functor AND 1, L_012ECF58, v012EBC48_0, C4<1>, C4<1>;
+v0128C390_0 .net "E", 0 0, v012EBC48_0; 1 drivers
+v0128C498_0 .alias "Y", 0 0, v012EC430_0;
+v0128C548_0 .net "i0", 0 0, v012EC640_0; 1 drivers
+v0128C5A0_0 .net "i1", 0 0, v012EBF60_0; 1 drivers
+v0128C2E0_0 .net "i2", 0 0, v012EBEB0_0; 1 drivers
+v0128C808_0 .net "i3", 0 0, v012EC0C0_0; 1 drivers
+v0128C5F8_0 .net "s0", 0 0, v012EC328_0; 1 drivers
+v0128C860_0 .net "s0_not", 0 0, L_01282470; 1 drivers
+v0128C650_0 .net "s1", 0 0, v012EBF08_0; 1 drivers
+v0128C8B8_0 .net "s1_not", 0 0, L_012824A8; 1 drivers
+v0128C6A8_0 .alias "w0", 0 0, v012EC170_0;
+v0128C700_0 .alias "w1", 0 0, v012EC010_0;
+v0128CA18_0 .alias "w2", 0 0, v012EC698_0;
+v0128C910_0 .alias "w3", 0 0, v012EC3D8_0;
+v012EC118_0 .alias "w4", 0 0, v012EC5E8_0;
+S_012B2450 .scope module, "behav" "mux_4to1_behavioural" 2 10, 4 1, S_012B1BD0;
+ .timescale -9 -12;
+v0128C4F0_0 .alias "E", 0 0, v0128C390_0;
+v0128C968_0 .var "Y", 0 0;
+v0128C758_0 .alias "i0", 0 0, v0128C548_0;
+v0128C3E8_0 .alias "i1", 0 0, v0128C5A0_0;
+v0128C9C0_0 .alias "i2", 0 0, v0128C2E0_0;
+v0128C7B0_0 .alias "i3", 0 0, v0128C808_0;
+v0128C338_0 .alias "s0", 0 0, v0128C5F8_0;
+v0128C440_0 .alias "s1", 0 0, v0128C650_0;
+E_012B5200/0 .event edge, v0128C4F0_0, v0128C338_0, v0128C440_0, v0128C758_0;
+E_012B5200/1 .event edge, v0128C3E8_0, v0128C9C0_0, v0128C7B0_0;
+E_012B5200 .event/or E_012B5200/0, E_012B5200/1;
+    .scope S_012B2450;
+T_0 ;
+    %wait E_012B5200;
+    %load/v 8, v0128C4F0_0, 1;
+    %mov 9, 0, 1;
+    %cmpi/u 8, 0, 2;
+    %jmp/0xz  T_0.0, 4;
+    %set/v v0128C968_0, 0, 1;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v0128C440_0, 1;
+    %load/v 9, v0128C338_0, 1;
+    %cmpi/u 8, 0, 2;
+    %jmp/1 T_0.2, 6;
+    %cmpi/u 8, 1, 2;
+    %jmp/1 T_0.3, 6;
+    %cmpi/u 8, 2, 2;
+    %jmp/1 T_0.4, 6;
+    %cmpi/u 8, 3, 2;
+    %jmp/1 T_0.5, 6;
+    %set/v v0128C968_0, 0, 1;
+    %jmp T_0.7;
+T_0.2 ;
+    %load/v 8, v0128C758_0, 1;
+    %set/v v0128C968_0, 8, 1;
+    %jmp T_0.7;
+T_0.3 ;
+    %load/v 8, v0128C3E8_0, 1;
+    %set/v v0128C968_0, 8, 1;
+    %jmp T_0.7;
+T_0.4 ;
+    %load/v 8, v0128C9C0_0, 1;
+    %set/v v0128C968_0, 8, 1;
+    %jmp T_0.7;
+T_0.5 ;
+    %load/v 8, v0128C7B0_0, 1;
+    %set/v v0128C968_0, 8, 1;
+    %jmp T_0.7;
+T_0.7 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_012B1BD0;
+T_1 ;
+    %vpi_call 2 13 "$dumpfile", "mux_4to1.vcd";
+    %vpi_call 2 14 "$dumpvars", 1'sb0, S_012B1BD0;
+    %set/v v012EBC48_0, 0, 1;
+    %set/v v012EC640_0, 2, 1;
+    %set/v v012EBF60_0, 2, 1;
+    %set/v v012EBEB0_0, 2, 1;
+    %set/v v012EC0C0_0, 2, 1;
+    %set/v v012EC328_0, 2, 1;
+    %set/v v012EBF08_0, 2, 1;
+    %delay 10000, 0;
+    %vpi_call 2 24 "$display", "E=0 -> Y_gate=%b, Y_behav=%b (Expected: 0)", v012EC430_0, v012EC4E0_0;
+    %set/v v012EBC48_0, 1, 1;
+    %set/v v012EBE58_0, 0, 32;
+T_1.0 ;
+    %load/v 8, v012EBE58_0, 32;
+   %cmpi/s 8, 64, 32;
+    %jmp/0xz T_1.1, 5;
+    %load/v 8, v012EBE58_0, 6; Only need 6 of 32 bits
+; Save base=8 wid=6 in lookaside.
+    %set/v v012EBF08_0, 8, 1;
+    %set/v v012EC328_0, 9, 1;
+    %set/v v012EC0C0_0, 10, 1;
+    %set/v v012EBEB0_0, 11, 1;
+    %set/v v012EBF60_0, 12, 1;
+    %set/v v012EC640_0, 13, 1;
+    %delay 10000, 0;
+    %vpi_call 2 29 "$display", "i0=%b,i1=%b,i2=%b,i3=%b,s0=%b,s1=%b,E=%b,Y_gate=%b,Y_behav=%b", v012EC640_0, v012EBF60_0, v012EBEB0_0, v012EC0C0_0, v012EC328_0, v012EBF08_0, v012EBC48_0, v012EC430_0, v012EC4E0_0;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v012EBE58_0, 32;
+    %set/v v012EBE58_0, 8, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %vpi_call 2 31 "$finish";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "mux_4to1_gatelevel.v";
+    "mux_4to1_behavioural.v";
