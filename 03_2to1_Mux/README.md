@@ -1,6 +1,4 @@
 
-### ✅ Place this file inside your `03_2to1_Mux/` directory and name it `README.md`
-
 
 # 2:1 Multiplexer in Verilog (Gate-Level & Behavioral)
 
