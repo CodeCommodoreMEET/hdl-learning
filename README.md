@@ -64,7 +64,7 @@ VS Code: Where I code my magic
 Let’s talk VLSI, share ideas, or team up! Click below to reach out:  
 
   
-    
+    <a href="https://www.linkedin.com/in/hodar-meet-2200b1284" target="_blank">Connect on LinkedIn</a>
   
 
 
