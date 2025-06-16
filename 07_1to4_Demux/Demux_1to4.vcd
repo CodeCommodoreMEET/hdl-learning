@@ -1,0 +1,196 @@
+$date
+	Mon Jun 16 22:44:13 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 1 ! y0_behav $end
+$var wire 1 " y0_gate $end
+$var wire 1 # y1_behav $end
+$var wire 1 $ y1_gate $end
+$var wire 1 % y2_behav $end
+$var wire 1 & y2_gate $end
+$var wire 1 ' y3_behav $end
+$var wire 1 ( y3_gate $end
+$var reg 1 ) e $end
+$var reg 1 * i $end
+$var integer 32 + ip [31:0] $end
+$var reg 1 , s0 $end
+$var reg 1 - s1 $end
+$scope module gate $end
+$var wire 1 . e $end
+$var wire 1 / i $end
+$var wire 1 0 s0 $end
+$var wire 1 1 s0_not $end
+$var wire 1 2 s1 $end
+$var wire 1 3 s1_not $end
+$var wire 1 " y0 $end
+$var wire 1 $ y1 $end
+$var wire 1 & y2 $end
+$var wire 1 ( y3 $end
+$upscope $end
+$scope module behav $end
+$var wire 1 . e $end
+$var wire 1 / i $end
+$var wire 1 0 s0 $end
+$var wire 1 2 s1 $end
+$var reg 1 4 y0 $end
+$var reg 1 5 y1 $end
+$var reg 1 6 y2 $end
+$var reg 1 7 y3 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x7
+x6
+x5
+x4
+13
+02
+11
+00
+0/
+0.
+0-
+0,
+b0 +
+0*
+0)
+0(
+x'
+0&
+x%
+0$
+x#
+0"
+x!
+$end
+#10
+1*
+1/
+b1 +
+#20
+01
+1,
+10
+0*
+0/
+b10 +
+#30
+1*
+1/
+b11 +
+#40
+03
+11
+1-
+12
+0,
+00
+0*
+0/
+b100 +
+#50
+1*
+1/
+b101 +
+#60
+01
+1,
+10
+0*
+0/
+b110 +
+#70
+1*
+1/
+b111 +
+#80
+13
+11
+07
+0'
+06
+0%
+05
+0#
+04
+0!
+1)
+1.
+0-
+02
+0,
+00
+0*
+0/
+b1000 +
+#90
+1"
+14
+1!
+1*
+1/
+b1001 +
+#100
+01
+0"
+04
+0!
+1,
+10
+0*
+0/
+b1010 +
+#110
+1&
+16
+1%
+1*
+1/
+b1011 +
+#120
+03
+11
+0&
+06
+0%
+1-
+12
+0,
+00
+0*
+0/
+b1100 +
+#130
+1$
+15
+1#
+1*
+1/
+b1101 +
+#140
+01
+0$
+05
+0#
+1,
+10
+0*
+0/
+b1110 +
+#150
+1(
+17
+1'
+1*
+1/
+b1111 +
+#160
+b10000 +
