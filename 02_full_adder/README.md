@@ -93,11 +93,6 @@ gtkwave Full_adder.vcd
 
 ---
 
-## 🖼️ Circuit Diagram
-
-![Full Adder Circuit Diagram](images/circuit_diagram.png)
-
----
 
 ## 📚 Key Learnings
 
