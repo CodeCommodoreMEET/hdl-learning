@@ -129,6 +129,4 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for d
 - [Multiplexer Theory](https://www.electronics-tutorials.ws/combination/comb_2.html)  
 - [Icarus Verilog Documentation](http://iverilog.wikia.com/)  
 
----
 
-**🌟 Happy Coding!** 🚀
