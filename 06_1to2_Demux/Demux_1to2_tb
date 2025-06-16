@@ -1,0 +1,98 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0114CCA0 .scope module, "testbench" "testbench" 2 3;
+ .timescale -9 -9;
+v011A4C28_0 .var "e", 0 0;
+v011A50A0_0 .var "i", 0 0;
+v011A4CD8_0 .var/i "ip", 31 0;
+v011A51A8_0 .var "s", 0 0;
+v011A4F40_0 .net "y0_behav", 0 0, v01144438_0; 1 drivers
+v011A52B0_0 .net "y0_gate", 0 0, L_01144520; 1 drivers
+v011A4EE8_0 .net "y1_behav", 0 0, v01144490_0; 1 drivers
+v011A5200_0 .net "y1_gate", 0 0, L_011A5430; 1 drivers
+S_0114D0E0 .scope module, "behav" "demux_1to2_behavioural" 2 7, 3 1, S_0114CCA0;
+ .timescale -9 -9;
+v01183C78_0 .net "e", 0 0, v011A4C28_0; 1 drivers
+v01183CD0_0 .net "i", 0 0, v011A50A0_0; 1 drivers
+v01183D28_0 .net "s", 0 0, v011A51A8_0; 1 drivers
+v01144438_0 .var "y0", 0 0;
+v01144490_0 .var "y1", 0 0;
+E_0114C8B0 .event edge, v01144DA0_0, v0114ACF0_0, v0114EF50_0;
+S_0114CEC0 .scope module, "gate" "demux_1to2_gatelevel" 2 8, 4 1, S_0114CCA0;
+ .timescale -9 -9;
+L_011444E8 .functor NOT 1, v011A51A8_0, C4<0>, C4<0>, C4<0>;
+L_01144520 .functor AND 1, v011A50A0_0, v011A4C28_0, L_011444E8, C4<1>;
+L_011A5430 .functor AND 1, v011A50A0_0, v011A4C28_0, v011A51A8_0, C4<1>;
+v01144DA0_0 .alias "e", 0 0, v01183C78_0;
+v0114EF50_0 .alias "i", 0 0, v01183CD0_0;
+v0114ACF0_0 .alias "s", 0 0, v01183D28_0;
+v0114AD48_0 .net "s_not", 0 0, L_011444E8; 1 drivers
+v01144DF8_0 .alias "y0", 0 0, v011A52B0_0;
+v01144E50_0 .alias "y1", 0 0, v011A5200_0;
+    .scope S_0114D0E0;
+T_0 ;
+    %wait E_0114C8B0;
+    %load/v 8, v01183C78_0, 1;
+    %mov 9, 0, 2;
+    %cmpi/u 8, 1, 3;
+    %jmp/0xz  T_0.0, 4;
+    %load/v 8, v01183D28_0, 1;
+    %cmpi/u 8, 0, 1;
+    %jmp/1 T_0.2, 6;
+    %cmpi/u 8, 1, 1;
+    %jmp/1 T_0.3, 6;
+    %jmp T_0.4;
+T_0.2 ;
+    %load/v 8, v01183CD0_0, 1;
+    %set/v v01144438_0, 8, 1;
+    %set/v v01144490_0, 0, 1;
+    %jmp T_0.4;
+T_0.3 ;
+    %set/v v01144438_0, 0, 1;
+    %load/v 8, v01183CD0_0, 1;
+    %set/v v01144490_0, 8, 1;
+    %jmp T_0.4;
+T_0.4 ;
+    %jmp T_0.1;
+T_0.0 ;
+    %set/v v01144438_0, 0, 1;
+    %set/v v01144490_0, 0, 1;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0114CCA0;
+T_1 ;
+    %vpi_call 2 11 "$dumpfile", "Demux_1to2.vcd";
+    %vpi_call 2 12 "$dumpvars", 1'sb0, S_0114CCA0;
+    %set/v v011A4CD8_0, 0, 32;
+T_1.0 ;
+    %load/v 8, v011A4CD8_0, 32;
+   %cmpi/s 8, 8, 32;
+    %jmp/0xz T_1.1, 5;
+    %load/v 8, v011A4CD8_0, 3; Only need 3 of 32 bits
+; Save base=8 wid=3 in lookaside.
+    %set/v v011A50A0_0, 8, 1;
+    %set/v v011A51A8_0, 9, 1;
+    %set/v v011A4C28_0, 10, 1;
+    %delay 2, 0;
+    %vpi_call 2 18 "$display", "e=%b,s=%b,i=%b,y0_behav=%b,y1_behav=%b,y0_gate=%b,y1_gate=%b", v011A4C28_0, v011A51A8_0, v011A50A0_0, v011A4F40_0, v011A4EE8_0, v011A52B0_0, v011A5200_0;
+    %delay 10, 0;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v011A4CD8_0, 32;
+    %set/v v011A4CD8_0, 8, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %vpi_call 2 22 "$finish";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "demux_1to2_behavioural.v";
+    "demux_1to2_gatelevel.v";
