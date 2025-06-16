@@ -1,0 +1,65 @@
+$date
+	Mon Jun 16 10:17:19 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! carry_behav $end
+$var wire 1 " carry_gate $end
+$var wire 1 # sum_behav $end
+$var wire 1 $ sum_gate $end
+$var integer 32 % i [31:0] $end
+$var reg 1 & x $end
+$var reg 1 ' y $end
+$scope module gate $end
+$var wire 1 " carry $end
+$var wire 1 $ sum $end
+$var wire 1 ( x $end
+$var wire 1 ) y $end
+$upscope $end
+$scope module behav $end
+$var wire 1 ! carry $end
+$var wire 1 # sum $end
+$var wire 1 ( x $end
+$var wire 1 ) y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0)
+0(
+0'
+0&
+b0 %
+0$
+0#
+0"
+0!
+$end
+#10
+1$
+1#
+1'
+1)
+b1 %
+#20
+1&
+1(
+0'
+0)
+b10 %
+#30
+0$
+1"
+0#
+1!
+1'
+1)
+b11 %
+#40
+b100 %
