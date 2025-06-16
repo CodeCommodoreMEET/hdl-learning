@@ -1,0 +1,85 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0120A6F8 .scope module, "testbench" "testbench" 2 1;
+ .timescale 0 0;
+v0120C230_0 .net "carry_behav", 0 0, L_01201B60; 1 drivers
+v0120C338_0 .net "carry_gate", 0 0, L_01154178; 1 drivers
+v0120C390_0 .var/i "i", 31 0;
+v0120C3E8_0 .net "sum_behav", 0 0, L_0120E910; 1 drivers
+v01153320_0 .net "sum_gate", 0 0, L_01153EA0; 1 drivers
+v01153008_0 .var "x", 0 0;
+v01153798_0 .var "y", 0 0;
+v01153060_0 .var "z", 0 0;
+S_01209D68 .scope module, "behav" "full_adder_behaviourlevel" 2 8, 3 1, S_0120A6F8;
+ .timescale 0 0;
+L_0120E8D8 .functor XOR 1, v01153008_0, v01153798_0, C4<0>, C4<0>;
+L_0120E910 .functor XOR 1, L_0120E8D8, v01153060_0, C4<0>, C4<0>;
+L_01201AB8 .functor AND 1, v01153008_0, v01153798_0, C4<1>, C4<1>;
+L_0120E868 .functor AND 1, v01153798_0, v01153060_0, C4<1>, C4<1>;
+L_0120E8A0 .functor OR 1, L_01201AB8, L_0120E868, C4<0>, C4<0>;
+L_01201B28 .functor AND 1, v01153008_0, v01153060_0, C4<1>, C4<1>;
+L_01201B60 .functor OR 1, L_0120E8A0, L_01201B28, C4<0>, C4<0>;
+v0120C440_0 .net *"_s0", 0 0, L_0120E8D8; 1 drivers
+v0120C288_0 .net *"_s10", 0 0, L_01201B28; 1 drivers
+v0120C4F0_0 .net *"_s4", 0 0, L_01201AB8; 1 drivers
+v0120C5F8_0 .net *"_s6", 0 0, L_0120E868; 1 drivers
+v0120C1D8_0 .net *"_s8", 0 0, L_0120E8A0; 1 drivers
+v0120C700_0 .alias "carry", 0 0, v0120C230_0;
+v0120C2E0_0 .alias "sum", 0 0, v0120C3E8_0;
+v0120C0D0_0 .net "x", 0 0, v01153008_0; 1 drivers
+v0120C758_0 .net "y", 0 0, v01153798_0; 1 drivers
+v0120C7B0_0 .net "z", 0 0, v01153060_0; 1 drivers
+S_0120A450 .scope module, "gate" "full_adder_gatelevel" 2 9, 4 1, S_0120A6F8;
+ .timescale 0 0;
+L_01154140 .functor XOR 1, v01153008_0, v01153798_0, C4<0>, C4<0>;
+L_01153EA0 .functor XOR 1, v01153060_0, L_01154140, C4<0>, C4<0>;
+L_01153FB8 .functor AND 1, v01153008_0, v01153798_0, C4<1>, C4<1>;
+L_01153F10 .functor AND 1, v01153060_0, L_01154140, C4<1>, C4<1>;
+L_01154178 .functor OR 1, L_01153FB8, L_01153F10, C4<0>, C4<0>;
+v0120C650_0 .alias "carry", 0 0, v0120C338_0;
+v0120C128_0 .alias "sum", 0 0, v01153320_0;
+v0120C548_0 .net "w1", 0 0, L_01154140; 1 drivers
+v0120C5A0_0 .net "w2", 0 0, L_01153FB8; 1 drivers
+v0120C078_0 .net "w3", 0 0, L_01153F10; 1 drivers
+v0120C180_0 .alias "x", 0 0, v0120C0D0_0;
+v0120C6A8_0 .alias "y", 0 0, v0120C758_0;
+v0120C498_0 .alias "z", 0 0, v0120C7B0_0;
+    .scope S_0120A6F8;
+T_0 ;
+    %vpi_call 2 12 "$dumpfile", "Full_adder.vcd";
+    %vpi_call 2 13 "$dumpvars", 1'sb0, S_0120A6F8;
+    %set/v v0120C390_0, 0, 32;
+T_0.0 ;
+    %load/v 8, v0120C390_0, 32;
+   %cmpi/s 8, 8, 32;
+    %jmp/0xz T_0.1, 5;
+    %load/v 8, v0120C390_0, 3; Only need 3 of 32 bits
+; Save base=8 wid=3 in lookaside.
+    %set/v v01153060_0, 8, 1;
+    %set/v v01153798_0, 9, 1;
+    %set/v v01153008_0, 10, 1;
+    %delay 5, 0;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v0120C390_0, 32;
+    %set/v v0120C390_0, 8, 32;
+    %jmp T_0.0;
+T_0.1 ;
+    %vpi_call 2 21 "$finish";
+    %end;
+    .thread T_0;
+    .scope S_0120A6F8;
+T_1 ;
+    %vpi_call 2 26 "$monitor", $time, "x=%b,y=%b,z%b,sum_behav=%b,carry_behav=%b,sum_gate=%b,carry_gate=%b", v01153008_0, v01153798_0, v01153060_0, v0120C3E8_0, v0120C230_0, v01153320_0, v0120C338_0;
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "full_adder_behaviourlevel.v";
+    "full_adder_gatelevel.v";
