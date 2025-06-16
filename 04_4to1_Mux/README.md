@@ -10,8 +10,11 @@ This project demonstrates the design and simulation of a **4-to-1 Multiplexer (M
 
 ```
 
+
+
 04\_4to1\_Mux/
 │
+
 ├── mux\_4to1\_gatelevel.v       # Gate-level implementation
 ├── mux\_4to1\_behavioural.v     # Behavioral implementation
 ├── testbench.v                # Common testbench for both models
