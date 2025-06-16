@@ -1,6 +1,3 @@
-Here’s a detailed `README.md` content tailored for your `04_4to1_Mux` Verilog project folder. This includes all key sections: project overview, folder structure, files, waveform, usage, and license.
-
----
 
 ```markdown
 # 4-to-1 Multiplexer (Verilog)
