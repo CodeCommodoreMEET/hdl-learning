@@ -6,11 +6,12 @@
 **A progressive collection of Verilog/SystemVerilog projects demonstrating my structured path to VLSI mastery**  
 by **Hodar Meet S**
 
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Verilog](https://img.shields.io/badge/Verilog-2001-orange)](https://standards.ieee.org/ieee/1364/3891/)
-[![GTKWave](https://img.shields.io/badge/Simulation-GTKWave-blue)](http://gtkwave.sourceforge.net/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hodar%20Meet-blue)](https://www.linkedin.com/in/hodar-meet-2200b1284/)
-[![Email](https://img.shields.io/badge/Email-hodarmeet99010@gmail.com-red)](mailto:hodarmeet99010@gmail.com)
+![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+![Verilog](https://img.shields.io/badge/Language-Verilog-orange)](https://standards.ieee.org/ieee/1364/3891/)
+![GTKWave](https://img.shields.io/badge/Waveform-GTKWave-blue)](http://gtkwave.sourceforge.net/)
+![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-blue)](https://www.linkedin.com/in/hodar-meet-2200b1284)
+![Email](https://img.shields.io/badge/Email-hodarmeet99010@gmail.com-red)](mailto:hodarmeet99010@gmail.com)
+
 
 
 ---
