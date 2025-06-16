@@ -77,7 +77,7 @@ gtkwave mux_4to1.vcd
 ````
 
 🖼️ Example GTKWave output:
-![Waveform Screenshot](images/waveform.png)
+![Waveform Screenshot]([images/waveform.png](https://github.com/CodeCommodoreMEET/hdl-learning/blob/main/04_4to1_Mux/images/Waveform.png)
 
 ---
 
