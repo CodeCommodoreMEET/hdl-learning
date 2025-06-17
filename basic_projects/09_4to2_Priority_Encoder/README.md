@@ -59,7 +59,7 @@ gtkwave Encoder_4to2.vcd
 
 ### 🔍 Sample GTKWave Output:
 
-![Waveform Output](images/waveform_output.png)
+![Waveform Output](basic_projects/09_4to2_Priority_Encoder/images/Waveform.png)
 
 ---
 
