@@ -53,6 +53,9 @@ State machines
 
 Next Up: Encoders, Counters, and I2C Protocol  
 
+
+
+
 ⚙️ Tools I Use
 
 Icarus Verilog: For fast simulations  
@@ -60,8 +63,12 @@ GTKWave: To see my waveforms
 VS Code: Where I code my magic
 
 
+
+
 📞 Connect With Me!
 Let’s talk VLSI, share ideas, or team up! Click below to reach out:  
+
+
 
 **Meet Hodar**
 📧 [hodarmeet99010@gmail.com](mailto:hodarmeet99010@gmail.com)
