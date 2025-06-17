@@ -72,18 +72,15 @@ The logic symbol below shows the pin configuration of a typical BCD-to-7-segment
    ```
 
 5. **View the Output**:
-   The simulation will display a table showing the BCD input, the 7-segment outputs (`a` to `g`), and the corresponding decimal digit (0–9). Invalid BCD inputs (10–15) will show a blank in the "7-segment" column, as shown in the screenshot below:
+   The simulation will display a table showing the BCD input, the 7-segment outputs (`a` to `g`), and the corresponding decimal digit (0–9). Invalid BCD inputs (10–15) will show a blank in the "7-segment" column.
 
-   ![Simulation Output](images/ALL_POSSIBLE_Outputs.png)
-
-6. **Waveform Analysis**:
+   
+7. **Waveform Analysis**:
    Open the generated `BCDto7-Segment_Decoder.vcd` file in a waveform viewer like GTKWave to analyze the signals:
    ```bash
    gtkwave BCDto7-Segment_Decoder.vcd
    ```
-   The waveform below shows the behavior of the inputs and outputs over time:
-
-   ![Waveform](https://github.com/CodeCommodoreMEET/hdl-learning/blob/main/basic_projects/14_BCDto7-Segment_Decoder/images/Waveform.png)
+ 
 
 ### Verilog Code
 
