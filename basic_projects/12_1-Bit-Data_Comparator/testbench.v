@@ -1,24 +1,23 @@
 `timescale 1ns/1ns
 
 module testbench;
-reg [2:0] i;
-wire [7:0] y;
-integer ip;
-Decoder_3to8_behav behav(i,y);
+reg i0,i1;
+wire a_g_b,a_e_b,b_g_a;
+integer i;
+Data_Comparator_1_Bit_behav behav(i0,i1,a_g_b,a_e_b,b_g_a);
     initial begin
 
-$dumpfile("Decoder_3to8.vcd");
+$dumpfile("1_Bit_Data_Comparator.vcd");
 $dumpvars(0,testbench);
 
-
-        for(ip=0;ip<8;ip=ip+1)
-        begin
-         
-         {i[2],i[1],i[0]}=ip[2:0];
-         #10;
-         $display("i[2]=%b,i[1]=%b,i[0]=%b,y=%b",i[2],i[1],i[0],y);
-
-        end
+    $display("i1 i0 | a> b | a==b | b> a");
+    $display("-----------------------------");
+for(i=0;i<4;i=i+1)
+begin
+    {i1,i0}=i[1:0];
+    #10;
+ $display(" %b  %b |   %b   |   %b   |   %b", i1, i0, a_g_b, a_e_b, b_g_a);
+end
         $finish;
     end
 

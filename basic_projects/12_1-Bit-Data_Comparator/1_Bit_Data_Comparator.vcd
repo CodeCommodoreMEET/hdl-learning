@@ -1,0 +1,67 @@
+$date
+	Tue Jun 17 16:43:23 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 1 ! a_e_b $end
+$var wire 1 " a_g_b $end
+$var wire 1 # b_g_a $end
+$var integer 32 $ i [31:0] $end
+$var reg 1 % i0 $end
+$var reg 1 & i1 $end
+$scope module behav $end
+$var wire 1 ' i0 $end
+$var wire 1 ( i1 $end
+$var reg 1 ) a_e_b $end
+$var reg 1 * a_g_b $end
+$var reg 1 + b_g_a $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0+
+0*
+1)
+0(
+0'
+0&
+0%
+b0 $
+0#
+0"
+1!
+$end
+#10
+0)
+0!
+1*
+1"
+1%
+1'
+b1 $
+#20
+1+
+1#
+0*
+0"
+1&
+1(
+0%
+0'
+b10 $
+#30
+0+
+0#
+1)
+1!
+1%
+1'
+b11 $
+#40
+b100 $

@@ -1,10 +1,13 @@
 
+# 🔍 1-Bit Data Comparator – Verilog HDL Project
 
-# 🔄 3-to-8 Decoder – Verilog HDL Project
+This project implements a **1-bit data comparator** using Verilog HDL in **behavioral modeling style**. The comparator takes two 1-bit binary inputs and produces three outputs indicating whether:
 
-This project implements a **3-to-8 Decoder** using **Behavioral Modeling** in Verilog. The decoder activates one of the eight outputs corresponding to a 3-bit binary input.
+- Input A is greater than Input B
+- Input A is equal to Input B
+- Input B is greater than Input A
 
-✅ A testbench exhaustively simulates all 8 input combinations and visualizes the results using **GTKWave**.
+The design is tested with a Verilog testbench and verified using GTKWave simulation.
 
 ---
 
@@ -12,135 +15,95 @@ This project implements a **3-to-8 Decoder** using **Behavioral Modeling** in Ve
 
 ```
 
-09\_3to8\_Decoder/
-├── Decoder\_3to8\_behav.v         # Behavioral model of 3-to-8 Decoder
-├── testbench.v                  # Testbench to simulate all 8 combinations
-├── Decoder\_3to8.vcd             # Simulation waveform dump
+12\_1bit\_Comparator/
+├── Data\_Comparator\_1\_Bit\_behav.v     # Behavioral Verilog module
+├── testbench.v                       # Testbench for simulation
+├── 1\_Bit\_Data\_Comparator.vcd         # VCD waveform file (generated)
 ├── images/
-│   ├── Truth\_Table.png          # Visual truth table (placeholder)
-│   └── Waveform.png             # GTKWave waveform screenshot
-└── README.md                    # Project documentation (this file)
+│   └── waveform.png                  # GTKWave waveform screenshot
+└── README.md                         # Project documentation
+
+```
+
+---
+
+## 🔧 Module Details
+
+### 📌 Module Name: `Data_Comparator_1_Bit_behav`
+
+| Port       | Direction | Width | Description                 |
+|------------|-----------|-------|-----------------------------|
+| `i0`       | Input     | 1-bit | Input A (LSB)               |
+| `i1`       | Input     | 1-bit | Input B (LSB)               |
+| `a_g_b`    | Output    | 1-bit | High when A > B             |
+| `a_e_b`    | Output    | 1-bit | High when A == B            |
+| `b_g_a`    | Output    | 1-bit | High when B > A             |
+
+---
+
+## 📜 Logic Description
+
+| i0 (A) | i1 (B) | a_g_b | a_e_b | b_g_a |
+|--------|--------|--------|--------|--------|
+|   0    |   0    |   0    |   1    |   0    |
+|   0    |   1    |   0    |   0    |   1    |
+|   1    |   0    |   1    |   0    |   0    |
+|   1    |   1    |   0    |   1    |   0    |
+
+---
+
+## 🧪 Simulation & Output
+
+The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the outputs.
+
+### ✅ Sample Output:
+```
+
+## i1 i0 | a> b | a==b | b> a
+
+0  0 |   0   |   1   |   0
+0  1 |   0   |   0   |   1
+1  0 |   1   |   0   |   0
+1  1 |   0   |   1   |   0
 
 ````
 
 ---
 
-## 🧠 What is a 3-to-8 Decoder?
+## 📷 Waveform (GTKWave)
 
-A **decoder** is a combinational circuit that converts binary information from *n input lines* to a maximum of *2ⁿ unique output lines*.
-
-### 🔹 Functionality:
-- Inputs: `i[2:0]` (3 bits)
-- Outputs: `y[7:0]` (only one output high at a time)
-- For input `i = n`, output `y[n] = 1` and all others are `0`.
+![Waveform](images/waveform.png)
 
 ---
 
-## 📊 Truth Table
+## 🚀 How to Run
 
-| i[2] | i[1] | i[0] | y[7:0]           |
-|------|------|------|------------------|
-|  0   |  0   |  0   | 00000001         |
-|  0   |  0   |  1   | 00000010         |
-|  0   |  1   |  0   | 00000100         |
-|  0   |  1   |  1   | 00001000         |
-|  1   |  0   |  0   | 00010000         |
-|  1   |  0   |  1   | 00100000         |
-|  1   |  1   |  0   | 01000000         |
-|  1   |  1   |  1   | 10000000         |
-
-🧠 Only one output is active (HIGH = `1`) at a time.
-
----
-
-## 💻 Files Overview
-
-### 🔸 `Decoder_3to8_behav.v`
-- Uses `case` statement inside an `always @(*)` block.
-- Initializes all outputs to `0` before decoding.
-- Very readable and clean behavioral style.
-
-### 🔸 `testbench.v`
-- Loops through all `8` input combinations (0 to 7).
-- Prints inputs and outputs using `$display`.
-- Dumps waveforms to `.vcd` file for GTKWave.
-
----
-
-## 📷 Output Previews
-
-> 🖼️ **Truth Table Visual**
-> ![Truth Table](images/Truth_Table.png)
-
-> 🖼️ **Simulation Waveform**
-> ![Waveform](images/Waveform.png)
-
----
-
-## 🛠️ How to Simulate
-
-Make sure you have **Icarus Verilog** and **GTKWave** installed.
-
-### 🔹 Compile
-```bash
-iverilog -o decoder_3to8.out Decoder_3to8_behav.v testbench.v
+1. Compile the design and testbench:
+   ```bash
+   iverilog -o comparator Data_Comparator_1_Bit_behav.v testbench.v
 ````
 
-### 🔹 Run
+2. Run the simulation:
 
-```bash
-vvp decoder_3to8.out
-```
+   ```bash
+   vvp comparator
+   ```
 
-### 🔹 View in GTKWave
+3. Open the waveform in GTKWave:
 
-```bash
-gtkwave Decoder_3to8.vcd
-```
-
----
-
-## 🧾 Output Sample
-
-```
-i[2]=0, i[1]=0, i[0]=0, y=00000001
-i[2]=0, i[1]=0, i[0]=1, y=00000010
-...
-i[2]=1, i[1]=1, i[0]=1, y=10000000
-```
+   ```bash
+   gtkwave 1_Bit_Data_Comparator.vcd
+   ```
 
 ---
 
-## 📌 Concepts Used
+## 🧠 Learning Outcome
 
-* Behavioral Modeling in Verilog
-* Case statement for clean decoding logic
-* GTKWave visualization
-* `for` loop in testbench
-* `dumpvars` and `.vcd` usage
+* Understanding of conditional logic in Verilog
+* Writing behavioral models using `always @(*)`
+* Creating basic testbenches for combinational circuits
+* Visualizing signal transitions with GTKWave
 
----
+> Designed as part of my HDL learning journey – check out more projects in this repo: [hdl-learning](https://github.com/hodarmeet/hdl-learning)
 
-## 🚀 Project Status
-
-✅ Completed
-🧪 Fully tested
-🖼️ Waveforms captured
-📂 Pushed to GitHub
-
----
-
-## 🔗 Repository
-
-📂 **GitHub Repo**: [hdl-learning](https://github.com/CodeCommodoreMEET/hdl-learning)
-
----
-
-## 👨‍💻 Author
-
-**Meet Hodar**
-📧 [hodarmeet99010@gmail.com](mailto:hodarmeet99010@gmail.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/hodar-meet-2200b1284)
-
----
 
