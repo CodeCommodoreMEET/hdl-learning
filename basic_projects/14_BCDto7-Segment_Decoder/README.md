@@ -19,10 +19,7 @@ The truth table defines the output signals for each BCD input. A `1` indicates t
 
 For invalid BCD inputs (10–15), all segments are turned off (`a = b = c = d = e = f = g = 0`).
 
-#### Logic Symbol
-The logic symbol below shows the pin configuration of a typical BCD-to-7-segment decoder/driver with **active-LOW outputs**. However, this project implements an **active-HIGH** decoder, so the logic is inverted compared to the diagram.
 
-![Logic Symbol](images/logic-symbol-for-a-BCD--to-seven-segment-decoder-driver-with-active-low-input.png)
 
 **Note**: The logic symbol depicts an active-LOW output decoder (common for devices like the 7447 IC), but this project uses active-HIGH outputs to match the testbench output format.
 
@@ -87,70 +84,11 @@ The logic symbol below shows the pin configuration of a typical BCD-to-7-segment
 #### BCDto7-Segment_Decoder_behav.v
 This file contains the behavioral Verilog code for the BCD to 7-Segment Decoder.
 
-```verilog
-module BCDto7_Segment_Decoder_behav (
-    input [3:0] k,
-    output reg a, b, c, d, e, f, g
-);
 
-always @(*) begin
-    case (k)
-        4'b0000: begin a=1; b=1; c=1; d=1; e=1; f=1; g=0; end // 0
-        4'b0001: begin a=0; b=1; c=1; d=0; e=0; f=0; g=0; end // 1
-        4'b0010: begin a=1; b=1; c=0; d=1; e=1; f=0; g=1; end // 2
-        4'b0011: begin a=1; b=1; c=1; d=1; e=0; f=0; g=1; end // 3
-        4'b0100: begin a=0; b=1; c=1; d=0; e=0; f=1; g=1; end // 4
-        4'b0101: begin a=1; b=0; c=1; d=1; e=0; f=1; g=1; end // 5
-        4'b0110: begin a=1; b=0; c=1; d=1; e=1; f=1; g=1; end // 6
-        4'b0111: begin a=1; b=1; c=1; d=0; e=0; f=0; g=0; end // 7
-        4'b1000: begin a=1; b=1; c=1; d=1; e=1; f=1; g=1; end // 8
-        4'b1001: begin a=1; b=1; c=1; d=1; e=0; f=1; g=1; end // 9
-        default: begin a=0; b=0; c=0; d=0; e=0; f=0; g=0; end  // blank
-    endcase
-end
-
-endmodule
-```
 
 #### testbench.v
 This file contains the testbench to simulate and verify the decoder’s behavior.
 
-```verilog
-`timescale 1ns/1ns
-
-module testbench;
-
-reg [3:0] k;
-wire a, b, c, d, e, f, g;
-
-integer i;
-
-BCDto7_Segment_Decoder_behav behav(k, a, b, c, d, e, f, g);
-
-initial begin
-    $dumpfile("BCDto7-Segment_Decoder.vcd");
-    $dumpvars(0, testbench);
-    $display(" BCD | a b c d e f g | 7-segment");
-    $display("----------------------------------");
-    for (i = 0; i < 16; i = i + 1) begin
-        k = i[3:0];
-        #10;
-        if (i < 10) begin
-            $display(" %b%b%b%b | %b %b %b %b %b %b %b |   %0d",
-                     k[3], k[2], k[1], k[0],
-                     a, b, c, d, e, f, g,
-                     i);
-        end else begin
-            $display(" %b%b%b%b | %b %b %b %b %b %b %b |",
-                     k[3], k[2], k[1], k[0],
-                     a, b, c, d, e, f, g);
-        end
-    end
-    $finish;
-end
-
-endmodule
-```
 
 ### Learning Resources
 To dive deeper into BCD to 7-Segment Decoders and Verilog, check out these resources on **GeeksforGeeks**:
