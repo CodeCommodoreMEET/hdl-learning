@@ -1,6 +1,4 @@
-Here's a detailed and professional `README.md` for your **4-Bit Data Comparator** Verilog project, suitable for GitHub and LinkedIn visibility:
 
----
 
 # 🔢 4-Bit Data Comparator – Verilog HDL Project
 
@@ -83,10 +81,8 @@ gtkwave Data_Comparator_4_Bit.vcd
 
 ---
 
-## 🛠️ Author & Project Goal
+## 🛠️ Project Goal
 
 This project is part of my [**HDL Learning Repository**](https://github.com/CodeCommodoreMEET/hdl-learning), created to showcase beginner to advanced-level Verilog projects and strengthen my skills toward a **VLSI/Semiconductor career**.
 
----
 
-Let me know if you want this in a Markdown file (`README.md`) or want to directly push it to GitHub!
