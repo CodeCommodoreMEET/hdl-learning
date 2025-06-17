@@ -1,0 +1,71 @@
+$date
+	Tue Jun 17 15:31:52 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 8 ! y [7:0] $end
+$var reg 3 " i [2:0] $end
+$var integer 32 # ip [31:0] $end
+$scope module behav $end
+$var wire 3 $ i [2:0] $end
+$var reg 8 % y [7:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b1 %
+b0 $
+b0 #
+b0 "
+b1 !
+$end
+#10
+b10 %
+b10 !
+b1 "
+b1 $
+b1 #
+#20
+b100 %
+b100 !
+b10 "
+b10 $
+b10 #
+#30
+b1000 %
+b1000 !
+b11 "
+b11 $
+b11 #
+#40
+b10000 %
+b10000 !
+b100 "
+b100 $
+b100 #
+#50
+b100000 %
+b100000 !
+b101 "
+b101 $
+b101 #
+#60
+b1000000 %
+b1000000 !
+b110 "
+b110 $
+b110 #
+#70
+b10000000 %
+b10000000 !
+b111 "
+b111 $
+b111 #
+#80
+b1000 #
