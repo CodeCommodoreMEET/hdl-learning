@@ -63,11 +63,7 @@ VS Code: Where I code my magic
 📞 Connect With Me!
 Let’s talk VLSI, share ideas, or team up! Click below to reach out:  
 
-Check out my LinkedIn profile: https://www.linkedin.com/in/hodar-meet-2200b1284
-  
-
-
-📧 Email: hodarmeet99010@gmail.com  
-Hit me up, and let’s dive into digital design together!  
-
-Let’s create the future, one Verilog line at a time!
+**Meet Hodar**
+📧 [hodarmeet99010@gmail.com](mailto:hodarmeet99010@gmail.com)
+🔗 [GitHub: hodarmeet](https://github.com/hodarmeet)
+🔗 [LinkedIn: Meet Hodar](https://www.linkedin.com/in/hodar-meet-2200b1284)
