@@ -60,7 +60,7 @@ gtkwave Encoder_4to2.vcd
 ### 🔍 Sample GTKWave Output:
 
 ![Waveform Output](https://github.com/CodeCommodoreMEET/hdl-learning/blob/main/basic_projects/09_4to2_Priority_Encoder/images/Waveform.png)
-
+Can also vist images folder <------
 ---
 
 ## 🔗 How to Run (using Icarus Verilog)
