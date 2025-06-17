@@ -83,7 +83,7 @@ The logic symbol below shows the pin configuration of a typical BCD-to-7-segment
    ```
    The waveform below shows the behavior of the inputs and outputs over time:
 
-   ![Waveform](images/waveform.png)
+   ![Waveform]((https://github.com/CodeCommodoreMEET/hdl-learning/blob/main/basic_projects/14_BCDto7-Segment_Decoder/images/Waveform.png)
 
 ### Verilog Code
 
