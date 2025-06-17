@@ -1,0 +1,367 @@
+$date
+	Wed Jun 18 00:01:08 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 1 ! error $end
+$var wire 1 " p $end
+$var reg 3 # Checker_Data [2:0] $end
+$var reg 3 $ a [2:0] $end
+$var integer 32 % i [31:0] $end
+$var reg 1 & parity_type $end
+$scope module behav $end
+$var wire 3 ' Checker_Data [2:0] $end
+$var wire 3 ( a [2:0] $end
+$var wire 1 ! error $end
+$var wire 1 " p $end
+$var wire 1 ) parity_type $end
+$scope module behav $end
+$var wire 3 * a [2:0] $end
+$var wire 1 ) parity_type $end
+$var reg 1 + p $end
+$upscope $end
+$scope module Behav $end
+$var wire 3 , a [2:0] $end
+$var wire 1 " p $end
+$var reg 1 - computed_parity_after_fliiping_of_bits_due_to_noise $end
+$var reg 1 . error $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0.
+x-
+bx ,
+0+
+b0 *
+0)
+b0 (
+bx '
+0&
+b0 %
+b0 $
+bx #
+0"
+0!
+$end
+#5
+0-
+b0 #
+b0 '
+b0 ,
+#10
+1.
+1!
+1-
+b10 #
+b10 '
+b10 ,
+#15
+0.
+0!
+1+
+1"
+b1 $
+b1 (
+b1 *
+b1 %
+#20
+b1 #
+b1 '
+b1 ,
+#25
+1.
+1!
+0-
+b11 #
+b11 '
+b11 ,
+#30
+b10 $
+b10 (
+b10 *
+b10 %
+#35
+0.
+0!
+1-
+b10 #
+b10 '
+b10 ,
+#40
+1.
+1!
+0-
+b0 #
+b0 '
+b0 ,
+#45
+0.
+0!
+0+
+0"
+b11 $
+b11 (
+b11 *
+b11 %
+#50
+b11 #
+b11 '
+b11 ,
+#55
+1.
+1!
+1-
+b1 #
+b1 '
+b1 ,
+#60
+0.
+0!
+1+
+1"
+b100 $
+b100 (
+b100 *
+b100 %
+#65
+b100 #
+b100 '
+b100 ,
+#70
+1.
+1!
+0-
+b110 #
+b110 '
+b110 ,
+#75
+0.
+0!
+0+
+0"
+b101 $
+b101 (
+b101 *
+b101 %
+#80
+b101 #
+b101 '
+b101 ,
+#85
+1.
+1!
+1-
+b111 #
+b111 '
+b111 ,
+#90
+b110 $
+b110 (
+b110 *
+b110 %
+#95
+0.
+0!
+0-
+b110 #
+b110 '
+b110 ,
+#100
+1.
+1!
+1-
+b100 #
+b100 '
+b100 ,
+#105
+0.
+0!
+1+
+1"
+b111 $
+b111 (
+b111 *
+b111 %
+#110
+b111 #
+b111 '
+b111 ,
+#115
+1.
+1!
+0-
+b101 #
+b101 '
+b101 ,
+#120
+1+
+1"
+b0 $
+b0 (
+b0 *
+1&
+1)
+b0 %
+#125
+b0 #
+b0 '
+b0 ,
+#130
+0.
+0!
+1-
+b10 #
+b10 '
+b10 ,
+#135
+1.
+1!
+0+
+0"
+b1 $
+b1 (
+b1 *
+b1 %
+#140
+b1 #
+b1 '
+b1 ,
+#145
+0.
+0!
+0-
+b11 #
+b11 '
+b11 ,
+#150
+0+
+0"
+b10 $
+b10 (
+b10 *
+b10 %
+#155
+1.
+1!
+1-
+b10 #
+b10 '
+b10 ,
+#160
+0.
+0!
+0-
+b0 #
+b0 '
+b0 ,
+#165
+1.
+1!
+1+
+1"
+b11 $
+b11 (
+b11 *
+b11 %
+#170
+b11 #
+b11 '
+b11 ,
+#175
+0.
+0!
+1-
+b1 #
+b1 '
+b1 ,
+#180
+1.
+1!
+0+
+0"
+b100 $
+b100 (
+b100 *
+b100 %
+#185
+b100 #
+b100 '
+b100 ,
+#190
+0.
+0!
+0-
+b110 #
+b110 '
+b110 ,
+#195
+1.
+1!
+1+
+1"
+b101 $
+b101 (
+b101 *
+b101 %
+#200
+b101 #
+b101 '
+b101 ,
+#205
+0.
+0!
+1-
+b111 #
+b111 '
+b111 ,
+#210
+1+
+1"
+b110 $
+b110 (
+b110 *
+b110 %
+#215
+1.
+1!
+0-
+b110 #
+b110 '
+b110 ,
+#220
+0.
+0!
+1-
+b100 #
+b100 '
+b100 ,
+#225
+1.
+1!
+0+
+0"
+b111 $
+b111 (
+b111 *
+b111 %
+#230
+b111 #
+b111 '
+b111 ,
+#235
+0.
+0!
+0-
+b101 #
+b101 '
+b101 ,
+#240
+b1000 %
