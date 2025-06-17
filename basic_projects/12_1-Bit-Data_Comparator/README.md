@@ -68,13 +68,6 @@ The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the
 
 ````
 
----
-
-## 📷 Waveform (GTKWave)
-
-![Waveform](images/waveform.png)
-
----
 
 ## 🚀 How to Run
 
@@ -106,4 +99,4 @@ The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the
 
 > Designed as part of my HDL learning journey – check out more projects in this repo: [hdl-learning](https://github.com/hodarmeet/hdl-learning)
 
-
+```
