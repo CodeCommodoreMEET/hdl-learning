@@ -97,7 +97,7 @@ To dive deeper into BCD to 7-Segment Decoders and Verilog, check out these resou
 - [Digital Electronics Basics](https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/): Explore the fundamentals of digital design, including decoders and display drivers.
 
 ### Future Enhancements
-- **Add a Clock Input**: Modify the decoder to use a clock signal for synchronous operation, as shown in the block diagram.
+- **Adding a Clock Input**: Modify the decoder to use a clock signal for synchronous operation, as shown in the block diagram.
 - **Support Active-LOW Outputs**: Adjust the decoder to support active-LOW outputs (as in the logic symbol) by inverting the logic.
 - **FPGA Implementation**: Synthesize the design on an FPGA and connect it to a real 7-segment display for a hands-on experience.
 - **Error Detection**: Add logic to detect and display an error symbol (e.g., "E") for invalid BCD inputs.
