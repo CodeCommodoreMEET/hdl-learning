@@ -97,6 +97,6 @@ The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the
 * Creating basic testbenches for combinational circuits
 * Visualizing signal transitions with GTKWave
 
-> Designed as part of my HDL learning journey – check out more projects in this repo: [hdl-learning](https://github.com/hodarmeet/hdl-learning)
+> Designed as part of my HDL learning journey – check out more projects in this repo: [hdl-learning](https://github.com/CodeCommodoreMEET/hdl-learning)
 
 
