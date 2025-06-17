@@ -1,5 +1,5 @@
 
-# 🔢 Priority Encoder (4-to-2) – Verilog HDL Project
+# 🔢 Priority Encoder (4-to-2) – Verilog HDL Project 
 
 This project implements a **4-to-2 Priority Encoder** using **behavioral modeling** in Verilog.  
 It is tested using a self-checking testbench and simulated with **GTKWave** for waveform analysis.
