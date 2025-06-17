@@ -72,9 +72,9 @@ The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the
 ## 🚀 How to Run
 
 1. Compile the design and testbench:
-   ```bash
+   
    iverilog -o comparator Data_Comparator_1_Bit_behav.v testbench.v
-````
+
 
 2. Run the simulation:
 
@@ -99,4 +99,4 @@ The testbench applies all 2-bit combinations of inputs (`i0`, `i1`) and logs the
 
 > Designed as part of my HDL learning journey – check out more projects in this repo: [hdl-learning](https://github.com/hodarmeet/hdl-learning)
 
-```
+
