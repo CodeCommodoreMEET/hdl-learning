@@ -1,5 +1,4 @@
 
-```markdown
 # 🔢 Priority Encoder (4-to-2) – Verilog HDL Project
 
 This project implements a **4-to-2 Priority Encoder** using **behavioral modeling** in Verilog.  
@@ -49,64 +48,6 @@ For a 4-to-2 priority encoder:
 
 ````
 
----
-
-## 🔧 Implementation Details
-
-### 📄 `Priority_Encoder_4to2_behav.v`
-
-```verilog
-module Priority_Encoder_4to2_behav(input i0, i1, i2, i3, output reg [1:0] y);
-
-    always @(*) begin
-        if (i3)       y = 2'b11;
-        else if (i2)  y = 2'b10;
-        else if (i1)  y = 2'b01;
-        else if (i0)  y = 2'b00;
-        else          y = 2'bxx;  // No input active
-    end
-
-endmodule
-````
-
----
-
-### 🧪 `testbench.v`
-
-The testbench:
-
-* Iterates over all 16 combinations of 4 input bits
-* Displays outputs for each case
-* Dumps simulation data to `.vcd` file for GTKWave
-
-```verilog
-`timescale 1ns/1ps
-
-module testbench;
-
-    reg i0, i1, i2, i3;
-    wire [1:0] y;
-    integer i;
-
-    Priority_Encoder_4to2_behav behav(i0, i1, i2, i3, y);
-
-    initial begin
-        $dumpfile("Encoder_4to2.vcd");
-        $dumpvars(0, testbench);
-
-        for (i = 0; i < 16; i = i + 1) begin
-            {i3, i2, i1, i0} = i[3:0];
-            #10;
-            $display("i3=%b, i2=%b, i1=%b, i0=%b -> y[1]=%b, y[0]=%b", i3, i2, i1, i0, y[1], y[0]);
-        end
-
-        $finish;
-    end
-
-endmodule
-```
-
----
 
 ## 📊 Simulation Waveform (GTKWave)
 
