@@ -1,0 +1,181 @@
+$date
+	Tue Jun 17 19:40:10 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module testbench $end
+$var wire 1 ! a $end
+$var wire 1 " b $end
+$var wire 1 # c $end
+$var wire 1 $ d $end
+$var wire 1 % e $end
+$var wire 1 & f $end
+$var wire 1 ' g $end
+$var integer 32 ( i [31:0] $end
+$var reg 4 ) k [3:0] $end
+$scope module behav $end
+$var wire 4 * k [3:0] $end
+$var reg 1 + a $end
+$var reg 1 , b $end
+$var reg 1 - c $end
+$var reg 1 . d $end
+$var reg 1 / e $end
+$var reg 1 0 f $end
+$var reg 1 1 g $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+01
+10
+1/
+1.
+1-
+1,
+1+
+b0 *
+b0 )
+b0 (
+0'
+1&
+1%
+1$
+1#
+1"
+1!
+$end
+#10
+00
+0&
+0/
+0%
+0.
+0$
+0+
+0!
+b1 )
+b1 *
+b1 (
+#20
+11
+1'
+1/
+1%
+1.
+1$
+0-
+0#
+1+
+1!
+b10 )
+b10 *
+b10 (
+#30
+0/
+0%
+1-
+1#
+b11 )
+b11 *
+b11 (
+#40
+10
+1&
+0.
+0$
+0+
+0!
+b100 )
+b100 *
+b100 (
+#50
+1.
+1$
+0,
+0"
+1+
+1!
+b101 )
+b101 *
+b101 (
+#60
+1/
+1%
+b110 )
+b110 *
+b110 (
+#70
+01
+0'
+00
+0&
+0/
+0%
+0.
+0$
+1,
+1"
+b111 )
+b111 *
+b111 (
+#80
+11
+1'
+10
+1&
+1/
+1%
+1.
+1$
+b1000 )
+b1000 *
+b1000 (
+#90
+0/
+0%
+b1001 )
+b1001 *
+b1001 (
+#100
+01
+0'
+00
+0&
+0.
+0$
+0-
+0#
+0,
+0"
+0+
+0!
+b1010 )
+b1010 *
+b1010 (
+#110
+b1011 )
+b1011 *
+b1011 (
+#120
+b1100 )
+b1100 *
+b1100 (
+#130
+b1101 )
+b1101 *
+b1101 (
+#140
+b1110 )
+b1110 *
+b1110 (
+#150
+b1111 )
+b1111 *
+b1111 (
+#160
+b10000 (
