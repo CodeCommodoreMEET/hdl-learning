@@ -1,0 +1,165 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 9;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0125CAB8 .scope module, "testbench" "testbench" 2 1;
+ .timescale -9 -9;
+v01254DB0_0 .var "a", 3 0;
+v01254E08_0 .var "b", 3 0;
+v01254E60_0 .net "carry", 0 0, v0125EF10_0; 1 drivers
+v01258530_0 .var/i "i", 31 0;
+v01258588_0 .net "result", 3 0, v0125EF68_0; 1 drivers
+v012585E0_0 .var "sel", 2 0;
+v01258638_0 .net "zero", 0 0, v01123750_0; 1 drivers
+S_0125CA30 .scope module, "behav" "ALU_4_Bit" 2 8, 3 3, S_0125CAB8;
+ .timescale -9 -9;
+v01259150_0 .net "a", 3 0, v01254DB0_0; 1 drivers
+v0125EEB8_0 .net "b", 3 0, v01254E08_0; 1 drivers
+v0125EF10_0 .var "carry", 0 0;
+v0125EF68_0 .var "result", 3 0;
+v011236A0_0 .net "sel", 2 0, v012585E0_0; 1 drivers
+v011236F8_0 .var "temp", 4 0;
+v01123750_0 .var "zero", 0 0;
+E_01257338/0 .event edge, v011236A0_0, v01259150_0, v0125EEB8_0, v011236F8_0;
+E_01257338/1 .event edge, v0125EF68_0;
+E_01257338 .event/or E_01257338/0, E_01257338/1;
+    .scope S_0125CA30;
+T_0 ;
+    %wait E_01257338;
+    %load/v 8, v011236A0_0, 3;
+    %cmpi/u 8, 0, 3;
+    %jmp/1 T_0.0, 6;
+    %cmpi/u 8, 1, 3;
+    %jmp/1 T_0.1, 6;
+    %cmpi/u 8, 2, 3;
+    %jmp/1 T_0.2, 6;
+    %cmpi/u 8, 3, 3;
+    %jmp/1 T_0.3, 6;
+    %cmpi/u 8, 4, 3;
+    %jmp/1 T_0.4, 6;
+    %cmpi/u 8, 5, 3;
+    %jmp/1 T_0.5, 6;
+    %cmpi/u 8, 6, 3;
+    %jmp/1 T_0.6, 6;
+    %cmpi/u 8, 7, 3;
+    %jmp/1 T_0.7, 6;
+    %jmp T_0.8;
+T_0.0 ;
+    %load/v 8, v01259150_0, 4;
+    %mov 12, 0, 1;
+    %load/v 13, v0125EEB8_0, 4;
+    %mov 17, 0, 1;
+    %add 8, 13, 5;
+    %set/v v011236F8_0, 8, 5;
+    %load/v 8, v011236F8_0, 4; Only need 4 of 5 bits
+; Save base=8 wid=4 in lookaside.
+    %set/v v0125EF68_0, 8, 4;
+    %ix/load 1, 4, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.9, 4;
+    %load/x1p 8, v011236F8_0, 1;
+    %jmp T_0.10;
+T_0.9 ;
+    %mov 8, 2, 1;
+T_0.10 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v0125EF10_0, 8, 1;
+    %jmp T_0.8;
+T_0.1 ;
+    %load/v 8, v01259150_0, 4;
+    %load/v 12, v0125EEB8_0, 4;
+    %sub 8, 12, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %load/v 8, v01259150_0, 4;
+    %mov 12, 0, 1;
+    %load/v 13, v0125EEB8_0, 4;
+    %mov 17, 0, 1;
+    %sub 8, 13, 5;
+    %set/v v011236F8_0, 8, 5;
+    %load/v 8, v011236F8_0, 4; Only need 4 of 5 bits
+; Save base=8 wid=4 in lookaside.
+    %set/v v0125EF68_0, 8, 4;
+    %load/v 8, v01259150_0, 4;
+    %load/v 12, v0125EEB8_0, 4;
+    %cmp/u 8, 12, 4;
+    %mov 8, 5, 1;
+    %set/v v0125EF10_0, 8, 1;
+    %jmp T_0.8;
+T_0.2 ;
+    %load/v 8, v01259150_0, 4;
+    %load/v 12, v0125EEB8_0, 4;
+    %and 8, 12, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.3 ;
+    %load/v 8, v01259150_0, 4;
+    %load/v 12, v0125EEB8_0, 4;
+    %or 8, 12, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.4 ;
+    %load/v 8, v01259150_0, 4;
+    %load/v 12, v0125EEB8_0, 4;
+    %xor 8, 12, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.5 ;
+    %load/v 8, v01259150_0, 4;
+    %inv 8, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.6 ;
+    %load/v 8, v01259150_0, 4;
+    %ix/load 0, 1, 0;
+    %mov 4, 0, 1;
+    %shiftl/i0  8, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.7 ;
+    %load/v 8, v01259150_0, 4;
+    %ix/load 0, 1, 0;
+    %mov 4, 0, 1;
+    %shiftr/i0  8, 4;
+    %set/v v0125EF68_0, 8, 4;
+    %jmp T_0.8;
+T_0.8 ;
+    %load/v 8, v0125EF68_0, 4;
+    %cmpi/u 8, 0, 4;
+    %mov 8, 4, 1;
+    %set/v v01123750_0, 8, 1;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_0125CAB8;
+T_1 ;
+    %vpi_call 2 12 "$dumpfile", "ALU_4_Bit.vcd";
+    %vpi_call 2 13 "$dumpvars", 1'sb0, S_0125CAB8;
+    %vpi_call 2 14 "$display", " a    |  b    | sel | result | carry | zero ";
+    %vpi_call 2 15 "$display", "---------------------------------------------";
+    %set/v v01258530_0, 0, 32;
+T_1.0 ;
+    %load/v 8, v01258530_0, 32;
+   %cmpi/s 8, 2048, 32;
+    %jmp/0xz T_1.1, 5;
+    %load/v 8, v01258530_0, 11; Only need 11 of 32 bits
+; Save base=8 wid=11 in lookaside.
+    %set/v v012585E0_0, 8, 3;
+    %set/v v01254E08_0, 11, 4;
+    %set/v v01254DB0_0, 15, 4;
+    %delay 5, 0;
+    %vpi_call 2 20 "$display", " %b | %b |  %b  |  %b   |   %b   |   %b", v01254DB0_0, v01254E08_0, v012585E0_0, v01258588_0, v01254E60_0, v01258638_0;
+    %ix/load 0, 1, 0;
+    %load/vp0/s 8, v01258530_0, 32;
+    %set/v v01258530_0, 8, 32;
+    %jmp T_1.0;
+T_1.1 ;
+    %vpi_call 2 23 "$finish";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testbench.v";
+    "ALU_4_Bit.v";
