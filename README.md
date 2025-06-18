@@ -73,4 +73,4 @@ Let’s talk VLSI, share ideas, or team up! Click below to reach out:
 **Meet Hodar**
 📧 [hodarmeet99010@gmail.com](mailto:hodarmeet99010@gmail.com)
 🔗 [GitHub: hodarmeet](https://github.com/hodarmeet)
-🔗 [LinkedIn: Meet Hodar](https://www.linkedin.com/in/hodar-meet-2200b1284)
+🔗 [LinkedIn: Meet Hodar](https://www.linkedin.com/in/meet-hodar-2200b1284/)
