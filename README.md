@@ -1,8 +1,8 @@
-🌍 Verilog Quest – Building VLSI Dreams
+Building VLSI Dreams
 Hey there! I’m Hodar Meet.I’m on a mission to master Verilog/SystemVerilog and break into the VLSI world with hands-on projects.
 
 
-🚀 About This Repo
+About This Repo
 This is my learning hub for Verilog and SystemVerilog, where I’m building projects from scratch to grow my VLSI skills. From gates to RTL, it’s all here!
 What’s Inside:  
 
